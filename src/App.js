@@ -76,7 +76,7 @@ export default class App extends Component<Props, State> {
     store.show_results = true
   }
   handleShowProductDetails(id: string) {
-    let index = store.cart_items.findIndex(item => {
+    let index = store.items.findIndex(item => {
       return item.id === id
     })
     store.selected_id = store.items[index].id

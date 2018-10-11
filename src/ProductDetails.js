@@ -136,7 +136,7 @@ export default class ProductDetails extends Component<Props, State> {
                 </View>
               </View>
               <View style={{ marginTop: 20, marginBottom: 10 }}>
-                <Text style={{ fontSize: 15, fontWeight: 'bold' }}>ℹ︎ PRODUCT INFORMATION</Text>
+                <Text style={{ fontSize: 15, fontWeight: 'bold' }}> PRODUCT INFORMATION</Text>
               </View>
               <View style={{ backgroundColor: '#FFFFFF' }}>
                 <Text style={{ color: '#CD5C5C', fontSize: 15, fontWeight: 'bold', padding: 8 }}>

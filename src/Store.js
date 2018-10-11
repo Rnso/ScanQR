@@ -312,7 +312,6 @@ const store = observable({
       },
     },
     {
-      kind: 'books#volume',
       id: 'XXIJTb7P2koC',
       etag: 'ruaq93k7JrY',
       selfLink: 'https://www.googleapis.com/books/v1/volumes/XXIJTb7P2koC',
