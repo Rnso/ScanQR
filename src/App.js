@@ -54,7 +54,10 @@ export default class App extends Component<Props, State> {
     }
   }
   componentDidMount() {
-    SplashScreen.hide()
+    setTimeout(() => {
+      SplashScreen.hide()
+    }, 1000)
+
   }
   handleShowMenu() {
     store.show_menu = store.show_menu ? false : true
@@ -72,7 +75,10 @@ export default class App extends Component<Props, State> {
     this.setState({ products: filtered })
     store.show_results = true
   }
-  handleShowProductDetails(index: number) {
+  handleShowProductDetails(id: string) {
+    let index = store.cart_items.findIndex(item => {
+      return item.id === id
+    })
     store.selected_id = store.items[index].id
     store.selected_title = store.items[index].title
     store.selected_authors = store.items[index].authors
@@ -225,7 +231,7 @@ export default class App extends Component<Props, State> {
                                           <View key={i}>
                                             {this.state.gridview ? (
                                               <TouchableOpacity
-                                                onPress={this.handleShowProductDetails.bind(this, i)}
+                                                onPress={this.handleShowProductDetails.bind(this, item.id)}
                                                 style={{
                                                   backgroundColor: 'white',
                                                   marginBottom: 6,
@@ -265,7 +271,7 @@ export default class App extends Component<Props, State> {
                                               </TouchableOpacity>
                                             ) : (
                                                 <TouchableOpacity
-                                                  onPress={this.handleShowProductDetails.bind(this, i)}
+                                                  onPress={this.handleShowProductDetails.bind(this, item.id)}
                                                   style={styles.row}
                                                 >
                                                   <Image
@@ -305,7 +311,7 @@ export default class App extends Component<Props, State> {
                                             <View key={i}>
                                               {this.state.gridview ? (
                                                 <TouchableOpacity
-                                                  onPress={this.handleShowProductDetails.bind(this, i)}
+                                                  onPress={this.handleShowProductDetails.bind(this, item.id)}
                                                   style={{
                                                     backgroundColor: 'white',
                                                     marginBottom: 6,
@@ -345,7 +351,7 @@ export default class App extends Component<Props, State> {
                                                 </TouchableOpacity>
                                               ) : (
                                                   <TouchableOpacity
-                                                    onPress={this.handleShowProductDetails.bind(this, i)}
+                                                    onPress={this.handleShowProductDetails.bind(this, item.id)}
                                                     style={styles.row}
                                                   >
                                                     <Image
